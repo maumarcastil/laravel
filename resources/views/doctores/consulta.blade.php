@@ -41,49 +41,37 @@
                 <div class="alert alert-light shadow p-3 bg-body rounded row">
                     <div class="col-10 row gy-2">
                         <div class="col-6 col-md-4">
-                            <h5 class="card-title fz-1">Nombre completo</h5>
-                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">{{ $consultas[$i]['nombre'] }}
+                            <h5 class="card-title fz-1">Doctor</h5>
+                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">{{ $consultas[$i]['doctor_id'] }}
                             </h6>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <h5 class="card-title text-capitalize fz-1">Eps</h5>
-                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">
-                                {{ $consultas[$i]['eps'] }}
-                            </h6>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <h5 class="card-title text-capitalize fz-1">Direccion</h5>
-                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">{{ $consultas[$i]['direccion'] }}
-                            </h6>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <h5 class="card-title fz-1">Telefono</h5>
-                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">
-                                {{ $consultas[$i]['tel'] }}</h6>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <h5 class="card-title fz-1">Nombre acompañante</h5>
-                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">
-                                {{ $consultas[$i]['nombre_acompañante'] }}</h6>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <h5 class="card-title fz-1">Tel acompañante</h5>
-                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">
-                                {{ $consultas[$i]['tel_acompañante'] }}</h6>
                         </div>
 
+                        <div class="col-6 col-md-4">
+                            <h5 class="card-title fz-1">Paciente</h5>
+                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">{{ $consultas[$i]['paciente_id'] }}
+                            </h6>
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                            <h5 class="card-title fz-1">Antecedentes</h5>
+                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">{{ $consultas[$i]['antecedentes'] }}
+                            </h6>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <h5 class="card-title text-capitalize fz-1">Motivos</h5>
+                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">
+                                {{ $consultas[$i]['motivos'] }}
+                            </h6>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <h5 class="card-title text-capitalize fz-1">Diagnostico</h5>
+                            <h6 class="card-subtitle text-muted text-capitalize fz-1-25">{{ $consultas[$i]['diagnostico'] }}
+                            </h6>
+                        </div>
                     </div>
                     <div class="col-2">
                         <div class="h-100 d-flex align-content-center justify-content-center">
-                            <a data-bs-toggle="modal" data-bs-target="#editar_doctor"
-                                class="icons-options | p-2 d-flex align-items-center">
-                                <i class="far fa-edit"></i>
-                            </a>
-
-                            <a href="{{ route('eliminarPaciente', ['id' => $consultas[$i]]) }}"
-                                class=" icons-options | p-2 d-flex align-items-center">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
+                            {{-- opciones eliminar y editar --}}
                         </div>
                     </div>
                 </div>
@@ -105,50 +93,28 @@
                     <form action="{{ route('guadarPaciente') }}" method="POST">
                         @method("POST")
 
-                        <div class="mb-3">
-                            <h5 class="card-title fz-1">Hospital a afiliar</h5>
-                            <select class="form-select" aria-label="Default select example" id="txtHospitalId"
-                                name="txtHospitalId" onchange="actualizarBtn()">
-                                <option value="" selected>Seleccione una opcion</option>
-                                @foreach ($hospitales as $hospital)
-                                    <option value="{{ $hospital['id'] }}">{{ $hospital['nombre'] }}</option>
-                                @endforeach
 
-                            </select>
-                        </div>
                         <div class="mb-3">
-                            <label for="Nombre" class="form-label">Nombre completo</label>
-                            <input type="text" class="form-control" id="txtNombre" name="txtNombre"
+                            <label for="Nombre" class="form-label">Doctor</label>
+                            <input type="text" class="form-control" id="txtDoctor" name="txtDoctor"
                                 aria-describedby="Nombre-clinica" onkeyup="actualizarBtn()">
                         </div>
                         <div class="mb-3">
-                            <label for="nit" class="form-label">Eps</label>
-                            <select class="form-select" aria-label="Default select example" id="txtEps" name="txtEps"
-                                onchange="actualizarBtn()">
-                                <option value="" selected>Seleccione una opcion</option>
-                                <option value="sura">Sura</option>
-                                <option value="coomeva">Coomeva</option>
-                                <option value="susalud">Susalud</option>
-                                <option value="cafesalud">Cafesalud</option>
-                                <option value="viva1a">viva1a</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="nit" class="form-label">Direccion</label>
-                            <input type="text" class="form-control" id="txtDireccion" name="txtDireccion"
+                            <label for="nit" class="form-label">Paciente</label>
+                            <input type="text" class="form-control" id="txtPaciente" name="txtPaciente"
                                 onkeyup="actualizarBtn()">
                         </div>
                         <div class="mb-3">
-                            <label for="nit" class="form-label">Telefono</label>
+                            <label for="nit" class="form-label">Antecedentes</label>
                             <input type="tel" class="form-control" id="txtTel" name="txtTel" onkeyup="actualizarBtn()">
                         </div>
                         <div class="mb-3">
-                            <label for="nit" class="form-label">Nombre acompañante</label>
+                            <label for="nit" class="form-label">Motivos</label>
                             <input type="text" class="form-control" id="txtNombreAcompañante" name="txtNombreAcompañante"
                                 onkeyup="actualizarBtn()">
                         </div>
                         <div class="mb-3">
-                            <label for="nit" class="form-label">Telefono acompañante</label>
+                            <label for="nit" class="form-label">Diagnostico</label>
                             <input type="tel" class="form-control" id="txtTelAcompañante" name="txtTelAcompañante"
                                 onkeyup="actualizarBtn()">
                         </div>

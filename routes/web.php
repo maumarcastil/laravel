@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\ConsultaController;
 
 
 /* Route::get('/', function () {
@@ -38,5 +39,9 @@ Route::get('/doctores/paciente', [PacienteController::class, "show"])->name("adm
 Route::post('/guardar_paciente', [PacienteController::class, "store"])->name("guadarPaciente");
 Route::get('/eliminar_paciente', [PacienteController::class, "destroy"])->name("eliminarPaciente");
 /* administrar consultas */
+Route::get('/doctores/consultas', [ConsultaController::class, "show"])->name("administrarConsulta");
+
+
+
 
 
