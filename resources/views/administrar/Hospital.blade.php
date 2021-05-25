@@ -18,6 +18,9 @@
             <button type="button" class="btn btn-color" data-bs-toggle="modal" data-bs-target="#crear_hospital">
                 Crear hospital
             </button>
+            <button type="button" class="btn btn-color" onClick="window.location='{{ route('administrador') }}'">
+                Volver
+            </button>
         </div>
 
         {{-- Tables --}}
@@ -34,7 +37,6 @@
             </div>
 
         @endif
-
 
         @for ($i = 0; $i < count($hospitales); $i++)
 

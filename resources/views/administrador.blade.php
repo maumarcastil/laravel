@@ -46,7 +46,7 @@
                         <div class="d-grid gap-2">
                             <button type="button"
                                 class="btn btn-lg btn-outline-primary | d-flex justify-content-center align-items-center"
-                                onClick="window.location='{{ route('administrarDoctores') }}'">Ir
+                                onClick="window.location='{{ route('administrarDoctor') }}'">Ir
                                 &nbsp;<i class="fas fa-chevron-circle-right"></i> </button>
                         </div>
 
@@ -63,7 +63,7 @@
 
 @endsection
 
-
+{{-- 
 @if (isset($error) == true)
 
     <script>
@@ -71,4 +71,4 @@
 
     </script>
 
-@endif
+@endif --}}

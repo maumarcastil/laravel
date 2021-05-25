@@ -3,83 +3,47 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Hospital;
 use Illuminate\Http\Request;
+use PhpParser\Comment\Doc;
 
 class DoctorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function show()
     {
-        //
+        $hospitales = Hospital::all();
+        $doctores = Doctor::all();
+
+        return view("administrar.Doctores", ["hospitales" => $hospitales, "doctores" => $doctores]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $nuevoDoctor = new Doctor();
+        $nuevoDoctor->nombre = $request->txtNombre;
+        $nuevoDoctor->dirreccion = $request->txtDireccion;
+        $nuevoDoctor->telefono = $request->txtTel;
+        $nuevoDoctor->tipo_sangre = $request->txtTipoSangre;
+        $nuevoDoctor->experiencia = $request->txtExperiencia;
+        $nuevoDoctor->fecha_nacimiento = $request->txtFecha;
+        $nuevoDoctor->hospital_id = $request->txtHospitalId;
+
+        $nuevoDoctor->save();
+
+        return redirect()->route("administrarDoctor");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Doctor $doctor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Doctor $doctor)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Doctor $doctor)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Doctor  $doctor
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Doctor $doctor)
-    {
-        //
+        $doctor = Doctor::where("id", $request->id)->delete();
+        return redirect()->route("administrarDoctor");
     }
 }
