@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    /* background-image: radial-gradient(#76BED0cc 20%, transparent 20%),
+        radial-gradient(#76BED0cc 20%, transparent 20%); */
+    background-color: #fff;
+    background-position: 0 0, 150px 150px;
+    background-size: 2.3px 2.3px;
+}
+
+/* Inicio */
+.icon-card-inicio {
+    font-size: 15vh;
+    color: #76bed0;
+}
+
+.tm-card {
+    width: 100%;
+    max-width: 526px;
+}
+
+/*  */
+/* fonts */
+/*  */
+@font-face {
+    font-family: "Jellee-Roman";
+    src: url("../fonts/Jellee-Roman.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,
+h5 {
+    font-family: "Jellee-Roman";
+    color: #76bed0;
+}
+
+/*  */
+/* buttons */
+/*  */
+
+.btn {
+    border-color: #76bed0 !important;
+    color: #76bed0 !important;
+}
+
+.btn:hover {
+    box-shadow: transparent !important;
+    background-color: #76bed0ee !important;
+    color: #fff !important;
+}
+
+.btn-color {
+    background-color: #76bed0;
+    color: #fff !important;
+}
+
+.icons-options {
+    color: #76bed0 !important;
+}
+
+.w-1000 {
+    width: 100%;
+    max-width: 1000px !important;
+}
+
+.fz-1 {
+    font-size: 1rem;
+}
+
+.fz-1-25 {
+    font-size: 1.25rem;
+}
+
+
+.btn-disabled:disabled{
+    background-color: gray !important;
+}
