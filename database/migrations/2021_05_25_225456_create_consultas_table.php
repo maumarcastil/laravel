@@ -16,7 +16,7 @@ class CreateConsultasTable extends Migration
         Schema::create('consultas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string("antecedentes", 150);
+            $table->string("antecedentes", 150)->nullable();
             $table->string("motivos", 150);
             $table->string("diagnostico", 150);
 

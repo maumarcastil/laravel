@@ -40,6 +40,7 @@ Route::post('/guardar_paciente', [PacienteController::class, "store"])->name("gu
 Route::get('/eliminar_paciente', [PacienteController::class, "destroy"])->name("eliminarPaciente");
 /* administrar consultas */
 Route::get('/doctores/consultas', [ConsultaController::class, "show"])->name("administrarConsulta");
+Route::post('/guardar_consulta', [ConsultaController::class, "store"])->name("guadarConsulta");
 
 
 

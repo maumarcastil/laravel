@@ -16,13 +16,22 @@ class ConsultaController extends Controller
         $consultas = consulta::all();
         $doctores = Doctor::all();
         $pacientes = Paciente::all();
-        return view("administrar.Doctores", ["consultas" => $consultas, "doctores" => $doctores, "pacientes" => $pacientes]);
+
+        return view("doctores.consulta", ["consultas" => $consultas, "doctores" => $doctores, "pacientes" => $pacientes]);
     }
 
 
     public function store(Request $request)
     {
-        //
+        $nuevaConsulta = new consulta();
+        $nuevaConsulta->antecedentes = $request->txtAntecedentes;
+        $nuevaConsulta->motivos = $request->txtMotivos;
+        $nuevaConsulta->diagnostico = $request->txtDiagnostico;
+        $nuevaConsulta->doctor_id = $request->txtDoctor;
+        $nuevaConsulta->paciente_id = $request->txtPaciente;
+        $nuevaConsulta->save();
+
+        return redirect()->route("administrarConsulta");
     }
 
 
